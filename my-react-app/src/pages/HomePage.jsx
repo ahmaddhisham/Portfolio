@@ -1,5 +1,16 @@
 import { motion, scale } from "framer-motion";
 import { Link } from "react-router-dom";
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaReact,
+  FaGitAlt,
+  FaVuejs,
+} from "react-icons/fa";
+import { SiTailwindcss, SiVite, SiFigma, SiAdobeillustrator,SiAdobephotoshop  } from "react-icons/si";
+import { DiBootstrap } from "react-icons/di";
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -60,9 +71,9 @@ function HomePage() {
               className="hidden md:block"
             >
               <img
-                src="heroportfolio.jpg"
+                src="karakibme.jpg"
                 alt="Hero"
-                className="rounded-2xl shadow-lg w-full h-auto"
+                className="rounded-2xl shadow-lg w-full h-120 object-cover"
               />
             </motion.div>
           </div>
@@ -99,12 +110,13 @@ function HomePage() {
               viewport={{ once: true }}
               className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm"
             >
+              <img src="coding.png" alt="Frontend" className="h-12 w-12 mb-4" />
               <h3 className="text-xl font-semibold text-gray-900">
                 Frontend Development
               </h3>
               <p className="mt-4 text-gray-600">
                 Hands-on experience building responsive, scalable web
-                applications using <strong>React</strong> and <strong>Vue</strong>.
+                applications using <strong className="text-indigo-700">React</strong> and <strong className="text-teal-600">Vue</strong>.
                 Focused on performance, component architecture, and maintainable
                 codebases.
               </p>
@@ -118,12 +130,13 @@ function HomePage() {
               viewport={{ once: true }}
               className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm"
             >
+              <img src="iti-logo-422x430.png" alt="UI/UX" className="h-12 w-12 mb-4 object-cover" />
               <h3 className="text-xl font-semibold text-gray-900">
                 UI / UX Design
               </h3>
               <p className="mt-4 text-gray-600">
                 Trained through the <strong>ICC Program</strong> in collaboration
-                with <strong>ITI</strong> (UI/UX Development Track), enabling me
+                with <strong className="text-red-700">ITI</strong> (UI/UX Development Track), enabling me
                 to translate user needs into intuitive interfaces with strong
                 visual hierarchy and usability.
               </p>
@@ -137,12 +150,13 @@ function HomePage() {
               viewport={{ once: true }}
               className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm"
             >
+              <img src="Bis-Logo.png" alt="Business" className="h-12 w-12 mb-4" />
               <h3 className="text-xl font-semibold text-gray-900">
                 Business Understanding
               </h3>
               <p className="mt-4 text-gray-600">
-                Academic background in <strong>Business Information Systems</strong>
-                at <strong>Helwan University</strong>, allowing me to align
+                Academic background in <strong>Business Information Systems </strong>
+                at <strong> Helwan University</strong>, allowing me to align
                 technical solutions with business objectives, user value, and
                 stakeholder expectations.
               </p>
@@ -175,87 +189,52 @@ function HomePage() {
     Expertise Showcase
 ===================== */}
 <section className="px-6 py-24">
-  <div className="mx-auto max-w-6xl space-y-16">
+  <div className="mx-auto max-w-6xl">
 
-    {/* Frontend */}
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      whileHover={{ scale: 1.02 }}
-
-      className="relative overflow-hidden rounded-3xl bg-gray-100 min-h-75 flex items-center"
+      className="text-center mb-16"
     >
-      <img
-        src="webdev.jpg"
-        alt="Frontend Development"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="relative bg-white/95 p-10 md:p-14 z-10 w-full md:w-1/2">
-        <h3 className="text-2xl font-bold text-gray-900">
-          Frontend Development
-        </h3>
-        <p className="mt-4 max-w-2xl text-gray-600">
-          I build scalable, responsive web applications using React and Vue,
-          focusing on clean architecture, performance optimization, and reusable
-          component design.
-        </p>
-      </div>
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+        Technical Skills
+      </h2>
+      <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+        A focused toolkit for building modern, performant, and maintainable
+        web applications.
+      </p>
     </motion.div>
 
-    {/* UI / UX */}
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      whileHover={{ scale: 1.02 }}
-
-      className="relative overflow-hidden rounded-3xl bg-gray-100 min-h-75 flex items-center"
-    >
-      <img
-        src="karakibme.jpg  "
-        alt="UI UX Design"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="relative bg-white/95 p-10 md:p-14 z-10 w-full md:w-1/2 md:ml-auto">
-        <h3 className="text-2xl font-bold text-gray-900">
-          UI / UX Design
-        </h3>
-        <p className="mt-4 text-gray-600">
-          Through the ICC program with ITI (UI/UX Development Track), I learned
-          how to apply user-centered design principles, usability testing, and
-          visual consistency to create intuitive digital experiences.
-        </p>
-      </div>
-    </motion.div>
-
-    {/* Business */}
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      whileHover={{ scale: 1.02 }}
-      className="relative overflow-hidden rounded-3xl bg-gray-100 min-h-75 flex items-center"
-    >
-      <img
-        src="graduationme.jpg"
-        alt="Business Understanding"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="relative bg-white/95 p-10 md:p-14 z-10 w-full md:w-1/2">
-        <h3 className="text-2xl font-bold text-gray-900">
-          Business-Oriented Thinking
-        </h3>
-        <p className="mt-4 max-w-2xl text-gray-600">
-          Studying Business Information Systems at Helwan University enables me
-          to approach development with an understanding of business processes,
-          stakeholder needs, and value-driven decision making.
-        </p>
-      </div>
-    </motion.div>
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+      {[
+        { icon: FaHtml5, label: "HTML5", color: "text-orange-600" },
+        { icon: FaCss3Alt, label: "CSS3", color: "text-blue-600" },
+        { icon: FaJs, label: "JavaScript", color: "text-yellow-500" },
+        { icon: FaReact, label: "React", color: "text-blue-500" },
+        { icon: SiTailwindcss, label: "Tailwind CSS", color: "text-blue-400" },
+        { icon: FaVuejs, label: "Vue", color: "text-green-700" },
+        { icon: FaGitAlt, label: "Git & GitHub" },
+        { icon: SiVite, label: "Vite", color: "text-purple-500" },
+        { icon: SiFigma, label: "Figma", color: "text-purple-600" },
+        { icon: DiBootstrap, label: "Bootstrap", color: "text-purple-700" },
+        { icon: SiAdobephotoshop, label: "Photoshop", color: "text-blue-700" },
+        { icon: SiAdobeillustrator, label: "Illustrator", color: "text-yellow-600" },
+      ].map((skill, index) => (
+        <motion.div
+          key={index}
+          whileHover={{ scale: 1.08 }}
+          transition={{ type: "spring", stiffness: 300 }}
+          className="flex flex-col items-center justify-center rounded-2xl bg-gray-100 p-8"
+        >
+          <skill.icon className={`text-4xl ${skill.color || "text-gray-900"}`} />
+          <span className="mt-4 text-sm font-medium text-gray-700">
+            {skill.label}
+          </span>
+        </motion.div>
+      ))}
+    </div>
 
   </div>
 </section>

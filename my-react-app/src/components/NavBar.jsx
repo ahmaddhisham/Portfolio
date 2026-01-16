@@ -13,7 +13,7 @@ import { Link, NavLink } from 'react-router-dom';
             <div className="hidden sm:flex items-center gap-8">
                 <NavLink to="/" className={({isActive}) => isActive ? "border-b-2 border-black pb-1 text-teal-700" : "pb-1"}>Home</NavLink>
                 <NavLink to="/projects" className={({isActive}) => isActive ? "border-b-2 border-black pb-1 text-teal-700" : "pb-1"}>Projects</NavLink>
-                <NavLink to='/contacts' className={({isActive}) => isActive ? "border-b-2 border-black pb-1 text-teal-700" : "pb-1"}>Contacts</NavLink>
+                <NavLink to='/contact' className={({isActive}) => isActive ? "border-b-2 border-black pb-1 text-teal-700" : "pb-1"}>Contacts</NavLink>
                 <NavLink to="/about" className={({isActive}) => isActive ? "border-b-2 border-black pb-1 text-teal-700" : "pb-1"}>About</NavLink>
 
             </div>

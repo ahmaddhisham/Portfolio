@@ -1,24 +1,36 @@
 const projects = [
+  
   {
     id: 1,
-    title: "Portfolio Website",
+    title: "Karakib",
     description:
-      "A modern portfolio built with React, Tailwind CSS, and smooth animations.",
-    image: "/images/portfolio.png",
-    tech: ["React", "Tailwind", "Framer Motion"],
-    demo: "https://your-demo-link.com",
+      "A waste management platform to streamline operations and improve efficiency.",
+    image: "karakibme.jpg",
+    tech: ["Vue", "API", "Tailwindcss", "PHP Laravel", "Gemini Chatbot", "Figma"],
+    demo: "https://karakib.netlify.app/",
     github: "https://github.com/ahmaddhisham",
   },
   {
     id: 2,
-    title: "Movie App",
+    title: "Movietos",
     description:
       "A movie discovery app consuming a public API with search and filtering.",
-    image: "/images/movie-app.png",
-    tech: ["React", "API", "CSS"],
-    demo: "",
+    image: "movietos.png",
+    tech: ["React", "TMDB API", "TailwindCSS"],
+    demo: "https://movietos.vercel.app/",
     github: "https://github.com/ahmaddhisham",
   },
+    {
+    id: 3,
+    title: "PropertyXpert",
+    description:
+      "A property listing platform with search and filtering capabilities.",
+    image: "propertyxpert.png",
+    tech: ["React", "framer-motion", "TailwindCSS"],
+    demo: "https://property-expert.vercel.app",
+    github: "https://github.com/ahmaddhisham",
+  },
+
 ];
 
 export default projects;
