@@ -55,7 +55,7 @@ function HomePage() {
                   View Projects
                 </Link>
                 <Link
-                  to="/contacts"
+                  to="/contact"
                   className="rounded-lg border border-gray-300 px-6 py-3 text-sm font-medium text-gray-800 transition hover:bg-gray-100 text-center"
                 >
                   Contact Me
@@ -165,26 +165,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* =====================
-          Closing Statement
-      ====================== */}
-      <section className="px-6 py-24">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          className="mx-auto max-w-4xl text-center"
-        >
-          <h2 className="text-3xl font-bold text-gray-900">
-            Bridging Design, Code, and Business
-          </h2>
-          <p className="mt-6 text-lg text-gray-600">
-            I aim to deliver digital products that are not only visually refined
-            and technically sound, but also aligned with real business needs.
-          </p>
-        </motion.div>
-      </section>
+
       {/* =====================
     Expertise Showcase
 ===================== */}

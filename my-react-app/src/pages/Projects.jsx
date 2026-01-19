@@ -34,12 +34,12 @@ function Projects() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <h1 className="text-4xl font-bold text-gray-900">
+          <h1 className="text-4xl font-bold text-teal-700">
             My Projects
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-            A selection of projects demonstrating my skills in modern frontend
-            development, clean UI design, and scalable React architecture.
+          <p className="mx-auto mt-4 max-w-2xl text-gray-600 text-lg">
+              A selection of projects demonstrating my skills in modern <span className="text-teal-600 font-bold">frontend
+              development</span>, <span className="text-teal-600 font-bold">clean UI design</span>, and  <span className="text-teal-600 font-bold">business driven scalable architecture</span>.
           </p>
         </motion.div>
 

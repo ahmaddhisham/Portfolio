@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Code, Palette, TrendingUp, Target, Sparkles, ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 // Animation variants
 const fadeUp = {
@@ -34,6 +35,7 @@ const scaleIn = {
 
 function AboutMe() {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -376,6 +378,7 @@ function AboutMe() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => navigate("/projects")}
                   className="px-8 py-3 bg-sky-700 text-white rounded-full font-semibold hover:shadow-lg transition-shadow"
                 >
                   View My Work
@@ -383,6 +386,7 @@ function AboutMe() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => navigate("/contact")}
                   className="px-8 py-3 bg-transparent border-2 border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
                 >
                   Let's Connect

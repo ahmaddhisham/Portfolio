@@ -42,6 +42,9 @@ function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [serverError, setServerError] = useState("");
+
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5174";
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,6 +52,8 @@ function ContactPage() {
       ...prev,
       [name]: value,
     }));
+    setServerError("");
+    setIsSubmitted(false);
     // Clear error for this field
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
@@ -70,41 +75,56 @@ function ContactPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validateForm();
-    
+
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
-    
+
+    setServerError("");
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 5000);
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data?.error || "Failed to send message.");
+      }
+
+      setIsSubmitted(true);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+    } catch (err) {
+      setServerError(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactMethods = [
     {
       icon: <Mail size={24} />,
       title: "Email",
-      value: "hello@example.com",
-      link: "mailto:hello@example.com",
-      bgColor: "bg-teal-50",
-      iconColor: "text-teal-600",
+      value: "ahmaddhisham5555@gmail.com",
+      link: "mailto:ahmaddhisham5555@gmail.com",
+      bgColor: "bg-teal-100",
+      iconColor: "text-teal-700",
     },
     {
       icon: <Phone size={24} />,
       title: "Phone",
-      value: "+20 123 456 7890",
-      link: "tel:+201234567890",
+      value: "+20 1020751794",
+      link: "tel:+201020751794",
       bgColor: "bg-teal-100",
       iconColor: "text-teal-700",
     },
@@ -114,7 +134,7 @@ function ContactPage() {
       value: "Cairo, Egypt",
       link: "#",
       bgColor: "bg-teal-200/50",
-      iconColor: "text-teal-800",
+      iconColor: "text-teal-700",
     },
   ];
 
@@ -129,14 +149,14 @@ function ContactPage() {
     {
       icon: <Github size={20} />,
       label: "GitHub",
-      href: "https://github.com",
+      href: "https://github.com/ahmaddhisham",
       bgColor: "bg-teal-600",
       hoverColor: "hover:bg-teal-700",
     },
     {
       icon: <MessageSquare size={20} />,
       label: "WhatsApp",
-      href: "https://wa.me",
+      href: "https://wa.me/+201020751794",
       bgColor: "bg-teal-700",
       hoverColor: "hover:bg-teal-800",
     },
@@ -152,7 +172,7 @@ function ContactPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-teal-50/40 to-emerald-50/40" />
         <div className="absolute top-10 right-10 w-72 h-72 bg-teal-200/20 rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-10 w-64 h-64 bg-emerald-200/20 rounded-full blur-3xl" />
-        
+
         <motion.div
           initial="hidden"
           animate="visible"
@@ -169,19 +189,19 @@ function ContactPage() {
               <MessageSquare size={16} />
               Let's Connect
             </motion.span>
-            
+
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 tracking-tight">
               Get In
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">
                 Touch
               </span>
             </h1>
-            
-            <motion.p 
+
+            <motion.p
               variants={fadeUp}
               className="mt-8 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
             >
-              Have a project in mind? Let's discuss how we can bring your ideas to life 
+              Have a project in mind? Let's discuss how we can bring your ideas to life
               with beautiful design and solid engineering.
             </motion.p>
           </motion.div>
@@ -208,7 +228,7 @@ function ContactPage() {
                 <p className="text-gray-600">
                   Feel free to reach out through any of these channels. I typically respond within 24 hours.
                 </p>
-                
+
                 <div className="space-y-4">
                   {contactMethods.map((method, index) => (
                     <motion.a
@@ -300,6 +320,11 @@ function ContactPage() {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {serverError && (
+                      <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                        {serverError}
+                      </div>
+                    )}
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -311,16 +336,15 @@ function ContactPage() {
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3 rounded-xl border ${
-                            errors.name ? "border-red-300" : "border-gray-300"
-                          } focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all`}
+                          className={`w-full px-4 py-3 rounded-xl border ${errors.name ? "border-red-300" : "border-gray-300"
+                            } focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all`}
                           placeholder="Your name"
                         />
                         {errors.name && (
                           <p className="mt-2 text-sm text-red-600">{errors.name}</p>
                         )}
                       </div>
-                      
+
                       <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                           Email Address *
@@ -331,9 +355,8 @@ function ContactPage() {
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3 rounded-xl border ${
-                            errors.email ? "border-red-300" : "border-gray-300"
-                          } focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all`}
+                          className={`w-full px-4 py-3 rounded-xl border ${errors.email ? "border-red-300" : "border-gray-300"
+                            } focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all`}
                           placeholder="you@example.com"
                         />
                         {errors.email && (
@@ -341,7 +364,7 @@ function ContactPage() {
                         )}
                       </div>
                     </div>
-                    
+
                     <div>
                       <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
                         Subject
@@ -356,7 +379,7 @@ function ContactPage() {
                         placeholder="Project inquiry"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                         Message *
@@ -367,25 +390,23 @@ function ContactPage() {
                         value={formData.message}
                         onChange={handleChange}
                         rows={6}
-                        className={`w-full px-4 py-3 rounded-xl border ${
-                          errors.message ? "border-red-300" : "border-gray-300"
-                        } focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all resize-none`}
+                        className={`w-full px-4 py-3 rounded-xl border ${errors.message ? "border-red-300" : "border-gray-300"
+                          } focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all resize-none`}
                         placeholder="Tell me about your project..."
                       />
                       {errors.message && (
                         <p className="mt-2 text-sm text-red-600">{errors.message}</p>
                       )}
                     </div>
-                    
+
                     <div className="pt-4">
                       <motion.button
                         type="submit"
                         disabled={isSubmitting}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className={`w-full flex items-center justify-center gap-3 py-4 px-8 bg-gradient-to-r from-teal-600 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ${
-                          isSubmitting ? "opacity-80 cursor-not-allowed" : ""
-                        }`}
+                        className={`w-full flex items-center justify-center gap-3 py-4 px-8 bg-gradient-to-r from-teal-600 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ${isSubmitting ? "opacity-80 cursor-not-allowed" : ""
+                          }`}
                       >
                         {isSubmitting ? (
                           <>
@@ -399,7 +420,7 @@ function ContactPage() {
                           </>
                         )}
                       </motion.button>
-                      
+
                       <p className="text-center text-sm text-gray-500 mt-4">
                         * Required fields. Your information is secure and will never be shared.
                       </p>
@@ -427,7 +448,7 @@ function ContactPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Common Questions</h2>
             <p className="text-gray-600">Quick answers to things you might be wondering about.</p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {

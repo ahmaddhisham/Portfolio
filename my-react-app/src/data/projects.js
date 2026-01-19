@@ -6,7 +6,7 @@ const projects = [
     description:
       "A waste management platform to streamline operations and improve efficiency.",
     image: "karakibme.jpg",
-    tech: ["Vue", "API", "Tailwindcss", "PHP Laravel", "Gemini Chatbot", "Figma"],
+    tech: ["Vue", "API", "Tailwindcss", "PHP Laravel", "Gemini Chatbot", "Figma", "Nodemailer","DaisyUi"],
     demo: "https://karakib.netlify.app/",
     github: "https://github.com/ahmaddhisham",
   },
