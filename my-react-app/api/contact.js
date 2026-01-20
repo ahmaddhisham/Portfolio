@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+const nodemailer = require("nodemailer");
 
 const requiredEnv = [
   "SMTP_HOST",
@@ -8,7 +8,7 @@ const requiredEnv = [
   "CONTACT_TO",
 ];
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Method check
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -65,4 +65,4 @@ export default async function handler(req, res) {
       .status(500)
       .json({ error: "Failed to send email. Please try again later." });
   }
-}
+};
