@@ -59,7 +59,7 @@ function Footer() {
                   to="/contact"
                   className="transition hover:text-gray-900"
                 >
-                  Contact
+                  Get in Touch
                 </Link>
               </li>
             </ul>
@@ -73,7 +73,9 @@ function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-gray-600">
               <li>
                 <Link
-                  to="/"
+                  to="https://github.com/ahmaddhisham"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="transition hover:text-gray-900"
                 >
                   GitHub
@@ -81,7 +83,9 @@ function Footer() {
               </li>
               <li>
                 <Link
-                  to="/"
+                  to="https://www.linkedin.com/in/ahmad-hisham-a942a6221/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="transition hover:text-gray-900"
                 >
                   LinkedIn
@@ -89,8 +93,10 @@ function Footer() {
               </li>
               <li>
                 <Link
-                  to="/"
+                  to="https://drive.google.com/drive/folders/14ZoY9tArfpp01EHTRATU_Ln7Cz3EOBD_?usp=drive_link"
                   className="transition hover:text-gray-900"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Resume
                 </Link>

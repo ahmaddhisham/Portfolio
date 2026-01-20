@@ -73,7 +73,7 @@ function HomePage() {
               <img
                 src="graduationme.jpg"
                 alt="Hero"
-                className="rounded-2xl shadow-lg w-full h-135 object-cover"
+                className="rounded-2xl shadow-lg w-130 h-120 object-top object-cover"
               />
             </motion.div>
           </div>
@@ -155,8 +155,8 @@ function HomePage() {
                 Business Understanding
               </h3>
               <p className="mt-4 text-gray-600">
-                Academic background in <strong className="text-blue-500">Business Information Systems </strong>
-                at <strong className="text-blue-500"> Helwan University</strong>, allowing me to align
+                Academic background in <strong className="text-blue-900">Business Information Systems </strong>
+                at <strong className="text-blue-900"> Helwan University</strong>, allowing me to align
                 technical solutions with business objectives, user value, and
                 stakeholder expectations.
               </p>
@@ -188,7 +188,39 @@ function HomePage() {
       </p>
     </motion.div>
 
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+        {/* View Resume Button */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      className="text-center"
+    >
+      <Link
+        to="https://drive.google.com/drive/folders/14ZoY9tArfpp01EHTRATU_Ln7Cz3EOBD_?usp=drive_link"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center rounded-lg bg-teal-700 px-8 py-3 text-sm font-medium text-white transition hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+      >
+        View My Resume
+        <svg
+          className="ml-2 h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+          />
+        </svg>
+      </Link>
+    </motion.div>
+
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 mb-16 mt-15">
       {[
         { icon: FaHtml5, label: "HTML5", color: "text-orange-600" },
         { icon: FaCss3Alt, label: "CSS3", color: "text-blue-600" },
@@ -216,6 +248,8 @@ function HomePage() {
         </motion.div>
       ))}
     </div>
+
+
 
   </div>
 </section>

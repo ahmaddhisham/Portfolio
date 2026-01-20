@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Code, Palette, TrendingUp, Target, Sparkles, ChevronRight } from "lucide-react";
+import { Code, Palette, TrendingUp, Target, Sparkles, ChevronRight, GraduationCap } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 // Animation variants
@@ -229,7 +229,7 @@ function AboutMe() {
   <div>
     <div className="flex items-center gap-3 mb-6">
       <div className="w-12 h-12 rounded-full bg-gradient-to-r from-green-100 to-blue-100 flex items-center justify-center">
-        <TrendingUp className="text-green-600" size={24} />
+        <GraduationCap className="text-green-600" size={24} />
       </div>
       <h2 className="text-3xl font-bold text-gray-900">
         Business Foundation
@@ -271,7 +271,7 @@ function AboutMe() {
     >
       <div className="flex items-center gap-3">
         <div className="flex-shrink-0 w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-          <TrendingUp size={20} className="text-green-600" />
+          <GraduationCap size={20} className="text-green-600" />
         </div>
         <div>
           <p className="text-sm font-medium text-gray-900">Bachelor of Business Information Systems</p>
