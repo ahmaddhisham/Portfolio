@@ -30,11 +30,10 @@ import { Link, NavLink } from 'react-router-dom';
             {/* Mobile Menu */}
             <div className={`${open ? 'flex' : 'hidden'} absolute top-15 left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 font-bold text-sm md:hidden`}>
                 <NavLink to="/" className={({isActive}) => isActive ? "block border-b-2 border-black pb-1" : "block pb-1"}>Home</NavLink>
+                <NavLink to="/projects" className={({isActive}) => isActive ? "block border-b-2 border-black pb-1" : "block pb-1"}>Projects</NavLink>
                 <NavLink to="/about" className={({isActive}) => isActive ? "block border-b-2 border-black pb-1" : "block pb-1"}>About</NavLink>
                 <NavLink to="/contacts" className={({isActive}) => isActive ? "block border-b-2 border-black pb-1" : "block pb-1"}>Contact</NavLink>
-                <button className="cursor-pointer px-6 py-2 mt-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full text-sm">
-                    Login
-                </button>
+
             </div>
 
         </nav>
