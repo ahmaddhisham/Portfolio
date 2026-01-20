@@ -23,7 +23,7 @@ const fadeUp = {
 
 function HomePage() {
   return (
-    <main className="bg-white">
+    <main className="bg-gray-100 min-h-screen">
       {/* =====================
           Hero Section
       ====================== */}
@@ -56,7 +56,7 @@ function HomePage() {
                 </Link>
                 <Link
                   to="/contact"
-                  className="rounded-lg border border-gray-300 px-6 py-3 text-sm font-medium text-gray-800 transition hover:bg-gray-100 text-center"
+                  className="rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-medium text-teal-700 transition hover:bg-gray-100 text-center"
                 >
                   Contact Me
                 </Link>
@@ -71,9 +71,9 @@ function HomePage() {
               className="hidden md:block"
             >
               <img
-                src="karakibme.jpg"
+                src="graduationme.jpg"
                 alt="Hero"
-                className="rounded-2xl shadow-lg w-full h-120 object-cover"
+                className="rounded-2xl shadow-lg w-full h-135 object-cover"
               />
             </motion.div>
           </div>
@@ -115,8 +115,8 @@ function HomePage() {
                 Frontend Development
               </h3>
               <p className="mt-4 text-gray-600">
-                Hands-on experience building responsive, scalable web
-                applications using <strong className="text-indigo-700">React</strong> and <strong className="text-teal-600">Vue</strong>.
+                Hands on experience building responsive, scalable web
+                applications using <strong className="text-blue-700">React</strong> and <strong className="text-green-600">Vue</strong>.
                 Focused on performance, component architecture, and maintainable
                 codebases.
               </p>
@@ -135,7 +135,7 @@ function HomePage() {
                 UI / UX Design
               </h3>
               <p className="mt-4 text-gray-600">
-                Trained through the <strong>ICC Program</strong> in collaboration
+                Trained through the <strong className="text-red-700">ICC Program</strong> in collaboration
                 with <strong className="text-red-700">ITI</strong> (UI/UX Development Track), enabling me
                 to translate user needs into intuitive interfaces with strong
                 visual hierarchy and usability.
@@ -155,8 +155,8 @@ function HomePage() {
                 Business Understanding
               </h3>
               <p className="mt-4 text-gray-600">
-                Academic background in <strong>Business Information Systems </strong>
-                at <strong> Helwan University</strong>, allowing me to align
+                Academic background in <strong className="text-blue-500">Business Information Systems </strong>
+                at <strong className="text-blue-500"> Helwan University</strong>, allowing me to align
                 technical solutions with business objectives, user value, and
                 stakeholder expectations.
               </p>
@@ -207,7 +207,7 @@ function HomePage() {
           key={index}
           whileHover={{ scale: 1.08 }}
           transition={{ type: "spring", stiffness: 300 }}
-          className="flex flex-col items-center justify-center rounded-2xl bg-gray-100 p-8"
+          className="flex flex-col items-center justify-center rounded-2xl bg-white p-8"
         >
           <skill.icon className={`text-4xl ${skill.color || "text-gray-900"}`} />
           <span className="mt-4 text-sm font-medium text-gray-700">
