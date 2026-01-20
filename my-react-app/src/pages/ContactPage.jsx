@@ -1,6 +1,19 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send, CheckCircle, Linkedin, Github, MessageSquare, Clock, Globe, Briefcase, Calendar } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  CheckCircle,
+  Linkedin,
+  Github,
+  MessageSquare,
+  Clock,
+  Globe,
+  Briefcase,
+  Calendar,
+} from "lucide-react";
 
 // Animation variants
 const fadeUp = {
@@ -44,8 +57,6 @@ function ContactPage() {
   const [errors, setErrors] = useState({});
   const [serverError, setServerError] = useState("");
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5174";
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -54,7 +65,7 @@ function ContactPage() {
     }));
     setServerError("");
     setIsSubmitted(false);
-    // Clear error for this field
+
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
@@ -85,7 +96,7 @@ function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/contact`, {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -100,7 +111,6 @@ function ContactPage() {
       setIsSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
 
-      // Reset success message after 5 seconds
       setTimeout(() => {
         setIsSubmitted(false);
       }, 5000);
