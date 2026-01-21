@@ -152,9 +152,9 @@ function ContactPage() {
     {
       icon: <Linkedin size={20} />,
       label: "LinkedIn",
-      href: "https://linkedin.com",
-      bgColor: "bg-teal-500",
-      hoverColor: "hover:bg-teal-600",
+      href: "https://www.linkedin.com/in/ahmad-hisham-a942a6221/",
+      bgColor: "bg-teal-600",
+      hoverColor: "hover:bg-teal-700",
     },
     {
       icon: <Github size={20} />,
@@ -167,13 +167,13 @@ function ContactPage() {
       icon: <MessageSquare size={20} />,
       label: "WhatsApp",
       href: "https://wa.me/+201020751794",
-      bgColor: "bg-teal-700",
-      hoverColor: "hover:bg-teal-800",
+      bgColor: "bg-teal-600",
+      hoverColor: "hover:bg-teal-700",
     },
   ];
 
   return (
-    <main className="bg-gradient-to-b from-white via-teal-50/30 to-white">
+    <main className="bg-gradient-to-b from-gray-100 via-teal-50/30 to-white">
       {/* =====================
           Header
       ====================== */}

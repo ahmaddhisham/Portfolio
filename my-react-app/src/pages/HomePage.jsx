@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { SiTailwindcss, SiVite, SiFigma, SiAdobeillustrator,SiAdobephotoshop  } from "react-icons/si";
 import { DiBootstrap } from "react-icons/di";
+import { FileText } from "lucide-react";
 
 
 const fadeUp = {
@@ -47,19 +48,21 @@ function HomePage() {
                 meaningful digital experiences.
               </p>
 
-              <div className="mt-10 flex flex-col md:flex-row justify-center md:justify-start gap-4">
-                <Link
-                  to="/projects"
-                  className="rounded-lg bg-teal-600 px-6 py-3 text-sm font-medium text-white transition hover:bg-teal-700 text-center"
-                >
-                  View Projects
-                </Link>
-                <Link
-                  to="/contact"
-                  className="rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-medium text-teal-700 transition hover:bg-gray-100 text-center"
-                >
-                  Contact Me
-                </Link>
+              <div className="mt-10 flex justify-center md:mr-32">
+                <div className="flex flex-col md:flex-row justify-center gap-4">
+                  <Link
+                    to="/projects"
+                    className="rounded-lg bg-teal-600 px-4 py-2 items-center w-52  font-medium text-white transition hover:bg-teal-700 text-center md:px-6 md:py-3"
+                  >
+                    View Projects
+                  </Link>
+                  <Link
+                    to="/contact"
+                    className="rounded-lg border border-gray-300 w-52 bg-white content-center px-4 py-2  font-medium text-teal-700 transition hover:bg-gray-100 text-center md:px-6 md:py-3"
+                  >
+                    Contact Me
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -200,23 +203,10 @@ function HomePage() {
         to="https://drive.google.com/drive/folders/14ZoY9tArfpp01EHTRATU_Ln7Cz3EOBD_?usp=drive_link"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center rounded-lg bg-teal-700 px-8 py-3 text-sm font-medium text-white transition hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+        className="inline-flex items-center rounded-lg bg-teal-600 px-8 py-3 text-sm font-medium text-white transition hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
       >
         View My Resume
-        <svg
-          className="ml-2 h-4 w-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-          />
-        </svg>
+        <FileText className="ml-2 h-4 w-4" />
       </Link>
     </motion.div>
 

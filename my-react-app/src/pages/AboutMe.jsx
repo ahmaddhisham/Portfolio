@@ -49,7 +49,7 @@ function AboutMe() {
   ];
 
   return (
-    <main className="bg-gradient-to-b from-white via-gray-50 to-white">
+    <main className="bg-gradient-to-b from-gray-50 via-gray-50 to-white">
       {/* =====================
           Enhanced Header
       ====================== */}
@@ -106,7 +106,7 @@ function AboutMe() {
                 className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer"
               >
                 <div className="text-teal-600 mb-3">{skill.icon}</div>
-                <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                <h3 className="font-semibold text-gray-900 group-hover:text-teal-600 transition-colors">
                   {skill.label}
                 </h3>
                 <p className="text-sm text-gray-500 mt-1">{skill.desc}</p>
@@ -154,7 +154,7 @@ function AboutMe() {
                 {["React", "Vue.js", "TypeScript","Javascript", "Next.js", "Tailwind", "Framer Motion","Figma"].map((tech) => (
                   <span 
                     key={tech}
-                    className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors"
+                    className="px-4 py-2 bg-gray-100 cursor-pointer text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 hover:text-teal-600 transition-colors"
                   >
                     {tech}
                   </span>

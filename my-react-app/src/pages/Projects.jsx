@@ -25,7 +25,7 @@ const cardVariants = {
 
 function Projects() {
   return (
-    <section className="min-h-screen bg-white px-6 py-20">
+    <section className="min-h-screen bg-gradient-to-b from-gray-100 via-teal-50/30 to-white px-6 py-20">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
         <motion.div
@@ -55,7 +55,7 @@ function Projects() {
               key={project.id}
               variants={cardVariants}
               whileHover={{ y: -6 }}
-              className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg"
+              className="group rounded-2xl border border-gray-200 bg-white p-6 hover:scale-102 shadow-sm transition-shadow hover:shadow-lg"
             >
               {/* Image */}
               <div className="mb-5 overflow-hidden rounded-xl bg-gray-100">
