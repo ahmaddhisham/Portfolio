@@ -5,8 +5,11 @@ import AboutMe from "./pages/AboutMe.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import Footer from "./components/Footer.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
+import useScrollToTop from "./hooks/useScrollToTop.js";
 
 function App() {
+  useScrollToTop();
+
   return (
     <>
       <Navbar />
