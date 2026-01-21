@@ -32,7 +32,7 @@ import { Link, NavLink } from 'react-router-dom';
                 <NavLink to="/" className={({isActive}) => isActive ? "block border-b-2 border-black pb-1" : "block pb-1"}>Home</NavLink>
                 <NavLink to="/projects" className={({isActive}) => isActive ? "block border-b-2 border-black pb-1" : "block pb-1"}>Projects</NavLink>
                 <NavLink to="/about" className={({isActive}) => isActive ? "block border-b-2 border-black pb-1" : "block pb-1"}>About</NavLink>
-                <NavLink to="/contacts" className={({isActive}) => isActive ? "block border-b-2 border-black pb-1" : "block pb-1"}>Contact</NavLink>
+                <NavLink to="/contact" className={({isActive}) => isActive ? "block border-b-2 border-black pb-1" : "block pb-1"}>Contact</NavLink>
 
             </div>
 
